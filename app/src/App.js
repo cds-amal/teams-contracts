@@ -2,10 +2,11 @@ import React from "react";
 import { DrizzleContext } from "@drizzle/react-plugin";
 import { Drizzle } from "@drizzle/store";
 import drizzleOptions from "./drizzleOptions";
+import store from "./middleware";
 import MyComponent from "./MyComponent";
 import "./App.css";
 
-const drizzle = new Drizzle(drizzleOptions);
+const drizzle = new Drizzle(drizzleOptions, store);
 
 const App = () => {
   return (

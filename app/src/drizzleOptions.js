@@ -4,6 +4,9 @@ import goerli_SimpleStorage from "./deployed-contracts/goerli/SimpleStorage.json
 // ropsten
 import ropsten_SimpleStorage from "./deployed-contracts/ropsten/SimpleStorage.json";
 
+// ganache
+import ganache_SimpleStorage from "./contracts/SimpleStorage.json";
+
 const { chainId } = window.ethereum
 let SimpleStorage;
 
@@ -17,20 +20,21 @@ switch(chainId) {
    *   break; */
 
   case '0x5':
-  default:
     SimpleStorage = goerli_SimpleStorage
+    break;
 
-    SimpleStorage = goerli_SimpleStorage
+  default:
+    SimpleStorage = ganache_SimpleStorage
 }
 
 const options = {
   contracts: [SimpleStorage],
   polls: {
     accounts: 10 * 1000
+  },
+  events: {
+    SimpleStorage: [ "CookieJarRaided", "DonationReceived", "NewGuest", "StorageSet" ],
   }
-  // events: {
-    // SimpleStorage: [ "CookieJarRaided", "DonationReceived", "UniqueVisitor", "StorageSet" ],
-  // },
 };
 
 export default options;
