@@ -3,14 +3,16 @@ import { newContextComponents } from "@drizzle/react-components";
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import logo from "./logo.png";
+import { CData, CDTable } from "./drz";
 
-const { AccountData, ContractData, ContractForm } = newContextComponents;
+const { AccountData, ContractForm } = newContextComponents;
+
 
 
 const VisitorSummary = ({ drizzle, drizzleState }) => (
   <h3>
     <span>
-    <ContractData
+    <CData
       drizzle={drizzle}
       drizzleState={drizzleState}
       contract="SimpleStorage"
@@ -18,7 +20,7 @@ const VisitorSummary = ({ drizzle, drizzleState }) => (
     />
     <span> impressions </span>
     <span> by </span>
-    <ContractData
+    <CData
       drizzle={drizzle}
       drizzleState={drizzleState}
       contract="SimpleStorage"
@@ -53,7 +55,7 @@ export default ({ drizzle, drizzleState }) => {
 
       <div className="section">
         <strong>Stored Value: </strong>
-          <ContractData
+          <CData
             drizzle={drizzle}
             drizzleState={drizzleState}
             contract="SimpleStorage"
@@ -65,13 +67,21 @@ export default ({ drizzle, drizzleState }) => {
       <div className="section">
         <h2>GuestList</h2>
         <VisitorSummary drizzle={drizzle} drizzleState={drizzleState} />
-        <ContractData
+        <CData
           drizzle={drizzle}
           drizzleState={drizzleState}
           contract="SimpleStorage"
           method="guestList"
         />
+      </div>
 
+      <div className="section">
+        <CDTable
+          drizzle={drizzle}
+          drizzleState={drizzleState}
+          contract="SimpleStorage"
+          method="guestList"
+        />
       </div>
 
     </div>
