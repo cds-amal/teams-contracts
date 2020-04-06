@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "teams:force-build": "git commit --amend --no-edit && git push -f"
+    "teams:force-build": "git commit --amend --no-edit && git push -f",
+    "teams:shape-json": "node ./scripts/shape-json.js"
   },
   "repository": {
     "type": "git",
