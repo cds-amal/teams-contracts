@@ -13,4 +13,4 @@ SimpleStorage
   - [√] fail a transaction
   - [ ] version info tied to commit hash
 
-- bump
+- bumpa
